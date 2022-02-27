@@ -2,9 +2,9 @@
 # делаем json-представление из модели
 
 from rest_framework.serializers import ModelSerializer
-from .models import Author
+from .models import User
 
-class AuthorModelSerializer(ModelSerializer):
+class UserModelSerializer(ModelSerializer):
     class Meta:
-        model = Author
-        fields = '__all__'
+        model = User
+        fields = ('user_name', 'first_name', 'last_name', 'birthday_year', 'email',)
