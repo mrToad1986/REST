@@ -6,6 +6,9 @@ class Project(models.Model):
     ref = models.URLField()
     users = models.ManyToManyField(User)
 
+    def __str__(self):
+        return self.name
+
 class TODO(models.Model):
     project = models.ForeignKey(User, related_name='_project', on_delete=models.PROTECT)
     text = models.TextField()
@@ -13,3 +16,6 @@ class TODO(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='_user', on_delete=models.PROTECT)
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.project
