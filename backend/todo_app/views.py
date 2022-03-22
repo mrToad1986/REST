@@ -26,7 +26,7 @@ class TODOModelViewSet(ModelViewSet):
     serializer_class = TODOModelSerializer
     filterset = TODOFilter
     pagination_class = TODOLimitOffsetPagination
-    def delete(self, request, pk = None, **kwargs):
+    def perform_destroy(self, request, pk = None, **kwargs):
         todo = get_object_or_404(TODO, pk=pk)
         todo.is_active = False
         todo.save()
