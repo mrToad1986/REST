@@ -6,26 +6,26 @@ from .serializers import ProjectModelSerializer, TODOModelSerializer
 from .filters import ProjectFilter, TODOFilter
 
 
-class ProjectLimitOffsetPagination(LimitOffsetPagination):
-    default_limit = 10
-
-
-class TODOLimitOffsetPagination(LimitOffsetPagination):
-    default_limit = 20
+# class ProjectLimitOffsetPagination(LimitOffsetPagination):
+#     default_limit = 10
+#
+#
+# class TODOLimitOffsetPagination(LimitOffsetPagination):
+#     default_limit = 20
 
 
 class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
     filterset_class = ProjectFilter
-    pagination_class = ProjectLimitOffsetPagination
+    # pagination_class = ProjectLimitOffsetPagination
 
 
 class TODOModelViewSet(ModelViewSet):
     queryset = TODO.objects.all()
     serializer_class = TODOModelSerializer
     filterset = TODOFilter
-    pagination_class = TODOLimitOffsetPagination
+    # pagination_class = TODOLimitOffsetPagination
     def perform_destroy(self, request, pk = None, **kwargs):
         todo = get_object_or_404(TODO, pk=pk)
         todo.is_active = False
