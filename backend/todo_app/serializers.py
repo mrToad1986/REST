@@ -15,7 +15,7 @@ class TODOListSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = TODO
-        fields = ('project', 'update_at', 'is_active')
+        fields = ('project', 'is_active')
 
 
 class ProjectModelSerializer(ModelSerializer):
