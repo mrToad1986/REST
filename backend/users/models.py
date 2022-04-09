@@ -7,6 +7,8 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=64)
     birthday_year = models.PositiveIntegerField(default=2000)
     email = models.EmailField(max_length=64, unique=True, default=None)
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
 
     def __str__(self):
