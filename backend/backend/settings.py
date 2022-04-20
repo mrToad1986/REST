@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
@@ -182,6 +183,10 @@ REST_FRAMEWORK = {
 
     # QueryParameterVersioning
     #'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
+}
+
+GRAPHENE = {
+    "SCHEMA": "backend.schema.schema"
 }
 
 #if DEBUG:
