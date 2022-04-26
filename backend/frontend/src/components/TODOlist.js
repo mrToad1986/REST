@@ -13,11 +13,14 @@ const TODOItem = ({TODO}) => {
             <td>
                 {TODO.is_active}
             </td>
+            <td>
+                <button onClick={() => deleteToDo(project.id)} type='button'>Delete</button>
+            </td>
 
         </tr>
     )
 }
-const TODOList = ({TODOs}) => {
+const TODOList = ({TODOs, deleteToDo}) => {
     return(
         <table border={1} bgcolor={'LightSteelBlue'}>
             <th>
@@ -29,8 +32,11 @@ const TODOList = ({TODOs}) => {
             <th>
                 Status
             </th>
+            <th>
 
-            {TODOs.map((todo) => <TODOItem todo={todo}/>)}
+            </th>
+            {TODOs.map((TODO) => <TODOItem TODO={TODO}/>)}
+            {ToDos.map((TODO) => <TODOItem TODO={TODO} deleteToDo={deleteToDo}/>)}
         </table>
     )
 }
